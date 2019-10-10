@@ -1,0 +1,46 @@
+@startuml bookdb
+
+header Datenbank Bücher (bookdb)
+title Tabellen-Definition
+
+object books {
+	**id: INT _AI**
+	title: VARCHAR(63)
+	author: VARCHAR(63)
+	pages: INT
+	publisher*: VARCHAR(63)
+	version*: VARCHAR(15)
+}
+
+object exercises {
+	**id: INT _AI**
+	//book_id: INT//
+	number INT
+	chapter: INT
+	page: INT
+	topic*: VARCHAR(63)
+	notes*: VARCHAR(255)
+}
+
+object questions {
+	**id: INT _AI**
+	//book_id: INT//
+	chapter: INT
+	page: INT
+	topic*: VARCHAR(63)
+	notes*: VARCHAR(255)
+}
+
+object chapters {
+	**id: INT _AI**
+	//book_id: INT//
+	topic: VARCHAR(63)
+	number: INT
+	page: INT
+}
+
+note "**primary key**\n//foreign key//\noptional* (null)\n_AI auto_increment" as note0
+
+footer 2019-10-10 (Michael Wronna)
+
+@enduml
